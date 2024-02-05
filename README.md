@@ -19,7 +19,7 @@ The mod can be used both on the client and on dedicated servers.
 
 ## TODO
 
-- [ ] Sitting on other players/mobs
+- [X] Sitting on other players/mobs
 - [ ] `/lay`
 - [ ] `/spin`
 - [ ] JSON config

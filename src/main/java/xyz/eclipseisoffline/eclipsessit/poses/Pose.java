@@ -14,6 +14,6 @@ public abstract class Pose {
     public void stopPosing() {}
 
     public boolean canPose() {
-        return player.isOnGround() && !player.hasVehicle();
+        return player.isOnGround() && !player.hasVehicle() && !player.hasPassengers();
     }
 }
