@@ -41,7 +41,8 @@ public class EclipsesSit implements ModInitializer {
             }
 
             if (player.isSneaking() || !(entity instanceof LivingEntity)
-                    || POSE_MANAGER.isPosing((ServerPlayerEntity) player)) {
+                    || POSE_MANAGER.isPosing((ServerPlayerEntity) player)
+                    || !player.getStackInHand(hand).isEmpty()) {
                 return ActionResult.PASS;
             }
 
