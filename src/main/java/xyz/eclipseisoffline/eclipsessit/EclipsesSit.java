@@ -16,7 +16,6 @@ import net.minecraft.util.ActionResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import xyz.eclipseisoffline.eclipsessit.poses.CrawlPose;
-import xyz.eclipseisoffline.eclipsessit.poses.LayPose;
 import xyz.eclipseisoffline.eclipsessit.poses.PlayerSitPose;
 import xyz.eclipseisoffline.eclipsessit.poses.Pose;
 import xyz.eclipseisoffline.eclipsessit.poses.PoseManager;
