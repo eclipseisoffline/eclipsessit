@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "eclipsessit",
+  "version": "${version}",
+  "name": "Eclipse's Sit Mod",
+  "description": "Adds /sit commands and more",
+  "authors": [
+    {
+      "name": "eclipseisoffline",
+      "contact": {
+        "homepage": "https://github.com/eclipseisoffline"
+      }
+    }
+  ],
+  "contact": {
+    "homepage": "https://github.com/eclipseisoffline/eclipsestweakeroo",
+    "issues": "https://github.com/eclipseisoffline/eclipsestweakeroo/issues",
+    "sources": "https://github.com/eclipseisoffline/eclipsestweakeroo"
+  },
+  "license": "GPLv3",
+  "icon": "assets/eclipsessit/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "xyz.eclipseisoffline.eclipsessit.EclipsesSit"
+    ]
+  },
+  "mixins": [
+    "eclipsessit.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "minecraft": "${minecraft_version}",
+    "fabric": "*"
+  }
+}
