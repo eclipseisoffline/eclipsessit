@@ -2,6 +2,7 @@ package xyz.eclipseisoffline.eclipsessit.poses;
 
 import net.minecraft.network.packet.s2c.play.EntityPassengersSetS2CPacket;
 import net.minecraft.server.network.ServerPlayerEntity;
+import xyz.eclipseisoffline.eclipsessit.EclipsesSit;
 import xyz.eclipseisoffline.eclipsessit.entity.PlayerHoldEntity;
 
 public class PlayerSitPose extends Pose {
@@ -28,15 +29,24 @@ public class PlayerSitPose extends Pose {
     }
 
     @Override
+    public void tick() {
+        if (!vehicle.hasPassengers() || !player.hasVehicle()) {
+            EclipsesSit.POSE_MANAGER.stopPosing(player);
+        }
+    }
+
+    @Override
     public void stopPosing() {
-        PlayerHoldEntity second = (PlayerHoldEntity) player.getVehicle();
-
-        assert second != null;
-        PlayerHoldEntity first = (PlayerHoldEntity) second.getVehicle();
-
-        assert first != null;
-        second.kill();
-        first.kill();
+        try {
+            PlayerHoldEntity second = (PlayerHoldEntity) player.getVehicle();
+            if (second != null) {
+                PlayerHoldEntity first = (PlayerHoldEntity) second.getVehicle();
+                if (first != null) {
+                    first.discard();
+                }
+                second.discard();
+            }
+        } catch (ClassCastException ignored) {}
     }
 
     @Override

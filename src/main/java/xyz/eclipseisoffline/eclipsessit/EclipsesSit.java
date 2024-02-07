@@ -16,6 +16,8 @@ import net.minecraft.util.ActionResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import xyz.eclipseisoffline.eclipsessit.poses.CrawlPose;
+import xyz.eclipseisoffline.eclipsessit.poses.FlipPose;
+import xyz.eclipseisoffline.eclipsessit.poses.LayPose;
 import xyz.eclipseisoffline.eclipsessit.poses.PlayerSitPose;
 import xyz.eclipseisoffline.eclipsessit.poses.Pose;
 import xyz.eclipseisoffline.eclipsessit.poses.PoseManager;
@@ -31,6 +33,8 @@ public class EclipsesSit implements ModInitializer {
 
         registerPoseCommand("sit", (serverCommandSource -> new SitPose(serverCommandSource.getPlayer())));
         registerPoseCommand("crawl", (serverCommandSource -> new CrawlPose(serverCommandSource.getPlayer())));
+        //registerPoseCommand("flip", (serverCommandSource -> new FlipPose(serverCommandSource.getPlayer())));
+        //registerPoseCommand("lay", (serverCommandSource -> new LayPose(serverCommandSource.getPlayer())));
 
         ServerTickEvents.END_SERVER_TICK.register((server) -> POSE_MANAGER.tickPosingPlayers());
         ServerLifecycleEvents.SERVER_STOPPING.register(server -> POSE_MANAGER.stopAllPoses());

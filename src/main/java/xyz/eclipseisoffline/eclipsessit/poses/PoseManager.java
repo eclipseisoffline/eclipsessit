@@ -48,9 +48,9 @@ public class PoseManager {
     }
 
     public void stopAllPoses() {
-        Set<Entry<ServerPlayerEntity, Pose>> posingPlayersSet = new HashSet<>(posingPlayers.entrySet());
-        for (Entry<ServerPlayerEntity, Pose> posingPlayer : posingPlayersSet) {
-            stopPosing(posingPlayer.getKey());
+        Set<ServerPlayerEntity> posingPlayersSet = new HashSet<>(posingPlayers.keySet());
+        for (ServerPlayerEntity posingPlayer : posingPlayersSet) {
+            stopPosing(posingPlayer);
         }
     }
 }

@@ -13,7 +13,7 @@ public class SitPose extends Pose {
     @Override
     public void startPosing() {
         PlayerHoldEntity holdEntity = new PlayerHoldEntity(player.getWorld(), player);
-        holdEntity.setPosition(holdEntity.getPos().offset(Direction.DOWN, 0.5));
+        holdEntity.setPosition(holdEntity.getPos().offset(Direction.DOWN, 0.4));
 
         player.getWorld().spawnEntity(holdEntity);
         player.startRiding(holdEntity, true);
@@ -21,10 +21,13 @@ public class SitPose extends Pose {
 
     @Override
     public void stopPosing() {
-        PlayerHoldEntity holdEntity = (PlayerHoldEntity) player.getVehicle();
+        try {
+            PlayerHoldEntity holdEntity = (PlayerHoldEntity) player.getVehicle();
 
-        assert holdEntity != null;
-        holdEntity.kill();
-        player.setPosition(player.getPos().offset(Direction.UP, 0.5));
+            if (holdEntity != null) {
+                holdEntity.discard();
+            }
+        } catch (ClassCastException ignored) {}
+        player.setPosition(player.getPos().offset(Direction.UP, 0.4));
     }
 }
